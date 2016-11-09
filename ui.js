@@ -14,7 +14,8 @@ module.exports = function(RED) {
         emit: emit,
         toNumber: toNumber.bind(null, false),
         toFloat: toNumber.bind(null, true),
-        updateUi: updateUi
+        updateUi: updateUi,
+        io: getSocket()
     };
 };
 
@@ -42,6 +43,10 @@ var ev = new events.EventEmitter();
 ev.setMaxListeners(0);
 
 var settings = {};
+
+function getSocket() {
+    return io;
+}
 
 function toNumber(keepDecimals, config, input) {
     if (typeof input === "number") { return input; }
