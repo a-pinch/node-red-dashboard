@@ -185,6 +185,11 @@ function init(server, app, log, redSettings) {
     var fullPath = join(redSettings.httpNodeRoot, settings.path);
     var socketIoPath = join(fullPath, 'socket.io');
 
+    var websocketPort = process.env.WEBSOCKET_PROXY_PORT;
+    if (websocketPort && server) {
+        server.listen(websocketPort)
+    }
+
     io = socketio(server, {path: socketIoPath});
 
     fs.stat(path.join(__dirname, 'dist/index.html'), function(err, stat) {

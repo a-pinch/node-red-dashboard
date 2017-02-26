@@ -3,6 +3,14 @@ angular.module('ui').service('UiEvents', ['$timeout',
         var updateValueEventName = 'update-value';
 
         this.connect = function(onuiloaded, replaydone) {
+
+
+            console.log("LOCATION");
+            var url = "//"+ location.hostname + ":4443" ;
+            console.log(url);
+
+            var socket = io(url, {path: location.pathname + 'socket.io'});
+
             var socket = io({path: location.pathname + 'socket.io'});
 
             this.emit = function (event, msg) {
