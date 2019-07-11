@@ -4,7 +4,7 @@ var inited = false;
 module.exports = function(RED) {
     if (!inited) {
         inited = true;
-        init(RED.server, RED.httpNode || RED.httpAdmin, RED.log, RED.settings);
+        init(RED.httpNode || RED.httpAdmin, RED.log, RED.settings);
     }
 
     return {
@@ -21,6 +21,7 @@ module.exports = function(RED) {
 
 var serveStatic = require('serve-static'),
     socketio = require('socket.io'),
+    http = require('http')
     path = require('path'),
     fs = require('fs'),
     events = require('events'),
@@ -176,7 +177,7 @@ function join() {
     return '/'+paths.map(function(e) {return e.replace(trimRegex,"");}).filter(function(e) {return e;}).join('/');
 }
 
-function init(server, app, log, redSettings) {
+function init(app, log, redSettings) {
     var uiSettings = redSettings.ui || {};
     settings.path = uiSettings.path || 'ui';
     settings.title = uiSettings.title || 'Node-RED Dashboard';
@@ -185,6 +186,7 @@ function init(server, app, log, redSettings) {
     var fullPath = join(redSettings.httpNodeRoot, settings.path);
     var socketIoPath = join(fullPath, 'socket.io');
 
+    var server = http.createServer(app);
     var websocketPort = process.env.WEBSOCKET_PROXY_PORT;
     if (websocketPort && server) {
         server.listen(websocketPort)

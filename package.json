@@ -10,10 +10,18 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "contributors": [
-        {"name": "Andrei Tatar"},
-        {"name": "Dave Conway-Jones"},
-        {"name": "Joe Pavitt"},
-        {"name": "Nick O'Leary"}
+        {
+            "name": "Andrei Tatar"
+        },
+        {
+            "name": "Dave Conway-Jones"
+        },
+        {
+            "name": "Joe Pavitt"
+        },
+        {
+            "name": "Nick O'Leary"
+        }
     ],
     "license": "Apache-2.0",
     "repository": {
@@ -26,15 +34,14 @@
             "ui_base": "nodes/ui_base.js",
             "ui_button": "nodes/ui_button.js",
             "ui_dropdown": "nodes/ui_dropdown.js",
-			"ui_switch": "nodes/ui_switch.js",
+            "ui_switch": "nodes/ui_switch.js",
             "ui_slider": "nodes/ui_slider.js",
             "ui_numeric": "nodes/ui_numeric.js",
             "ui_text_input": "nodes/ui_text_input.js",
-			"ui_form": "nodes/ui_form.js",
+            "ui_form": "nodes/ui_form.js",
             "ui_text": "nodes/ui_text.js",
             "ui_gauge": "nodes/ui_gauge.js",
             "ui_chart": "nodes/ui_chart.js",
-            "ui_form": "nodes/ui_form.js",
             "ui_audio": "nodes/ui_audio.js",
             "ui_toast": "nodes/ui_toast.js",
             "ui_ui_control": "nodes/ui_ui_control.js",
